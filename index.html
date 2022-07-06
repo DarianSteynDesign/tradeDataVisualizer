@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Trade Reader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body class="dark">
+        <div class="menu-container">
+            <ul class="menu-list">
+                <li class="menu-list-item">
+                    <button id="switchTheme" class="menu-btn">Switch Theme</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-container">
+            <div class="data-container">
+                <div class="chart-container chart-size-container">
+                    <p class="chart-heading">Trades Over Time</p>
+                    <canvas id="barChart" width="250" height="250"></canvas>
+                </div>
+                <div class="chart-container chart-size-container">
+                    <canvas id="profitPerDay" width="250" height="250"></canvas>
+                </div>
+
+                <div class="raw-data-container">
+                    <p class="chart-heading">Raw Data</p>
+
+                    <div class="raw-data-viewer">
+                        <ul class="raw-data-list">
+
+                        </ul>
+                    </div>
+
+                    <div class="summary-container">
+                        <p class="profit" id="profit"></p>
+                        <p class="loss" id="loss"></p>
+                        <br>
+                        <p class="profit" id="totalProfit"></p>
+                        
+                        <p id="averageWinPerc" class="win-rate-ratio"></p>
+                        <p id="ratio" class="win-rate-ratio"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profit-container">
+                <div class="chart-container">
+                    <canvas id="winPercChart" width="250" height="250"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="lossPercChart" width="250" height="250"></canvas>
+                </div>
+                <div class="chart-container chart-size-container">
+                    <p class="chart-heading">Win Rate</p>
+                    <canvas id="polarChart" width="500" height="500"></canvas>
+                </div>
+            </div>
+
+            <div class="win-loss-container">
+                <div class="chart-container">
+                    <canvas id="winChart" width="250" height="250"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="lossChart" width="250" height="250"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>
