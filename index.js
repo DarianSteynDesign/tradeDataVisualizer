@@ -126,8 +126,6 @@ function proccessWinLossData(date, data) {
 
     if(dataCount == (allTextLines.length - 1)){
         //console.log(combinedWinData);
-        createLineChart('winChart', winDataLabels, winData, 'Profit', 'rgb(16, 212, 98)');
-        createLineChart('lossChart', lossDataLabels, lossData, 'Loss', 'rgb(212, 16, 16)');
         createDailyData(combinedWinData, combinedLossData);
     }
 }
@@ -232,7 +230,22 @@ function calculateProfitPerDay(profit, loss) {
         dailyTotals.push(totalLoss + totalProfit);
     }
     
+    calcAvgProfitOverTime(dailyTotals);
     createBarChart("profitPerDay", winLossPercLabels, dailyTotals, 'Profit Per Day');
+    createLineChart("equityCurve", winLossPercLabels, dailyTotals, 'Equity Curve', 'rgb(16, 150, 212)');
+}
+
+function calcAvgProfitOverTime(profitPerDay) {
+    var avgProfitOverTime = 0;
+    var totalProfit = 0;
+
+    for(var i = 0; i < profitPerDay.length; i++) {
+        totalProfit += profitPerDay[i];
+    }
+
+    avgProfitOverTime = totalProfit / profitPerDay.length;
+    $('#avgProfit').text("AVG Profit: " + avgProfitOverTime.toFixed(2).toString());
+    console.log("Avg profit", avgProfitOverTime);
 }
 
 function processProfitLoss(data) {
@@ -244,7 +257,7 @@ function processProfitLoss(data) {
             total += data[i].data
         } else {
             currentDay = data[i].date;
-            total = 0;
+            total += data[i].data
         }
     }
 

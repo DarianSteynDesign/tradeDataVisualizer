@@ -43,10 +43,23 @@
                         <p class="loss" id="loss"></p>
                         <br>
                         <p class="profit" id="totalProfit"></p>
-                        
+                        <p class="profit avg" id="avgProfit"></p>
+
                         <p id="averageWinPerc" class="win-rate-ratio"></p>
                         <p id="ratio" class="win-rate-ratio"></p>
                     </div>
+                </div>
+            </div>
+
+            <div class="profit-container">
+                <div class="chart-container chart-size-container">
+                    <p class="chart-heading">Equity Curve</p>
+                    <canvas id="equityCurve" width="500" height="500"></canvas>
+                </div>
+
+                <div class="chart-container chart-size-container">
+                    <p class="chart-heading">Win Rate</p>
+                    <canvas id="polarChart" width="500" height="500"></canvas>
                 </div>
             </div>
 
@@ -56,19 +69,6 @@
                 </div>
                 <div class="chart-container">
                     <canvas id="lossPercChart" width="250" height="250"></canvas>
-                </div>
-                <div class="chart-container chart-size-container">
-                    <p class="chart-heading">Win Rate</p>
-                    <canvas id="polarChart" width="500" height="500"></canvas>
-                </div>
-            </div>
-
-            <div class="win-loss-container">
-                <div class="chart-container">
-                    <canvas id="winChart" width="250" height="250"></canvas>
-                </div>
-                <div class="chart-container">
-                    <canvas id="lossChart" width="250" height="250"></canvas>
                 </div>
             </div>
         </div>
