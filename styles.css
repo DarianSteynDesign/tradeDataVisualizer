@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #fafdff;
 }
 
 .chart-container {
@@ -20,7 +20,7 @@ body {
     height: 80px;
     margin: 30px 20px 20px 20px;
     border-radius: 10px;
-    background-color: rgb(243, 243, 243);
+    background-color: #e7ebed;
     border: 1px solid grey;
 }
 
@@ -58,6 +58,10 @@ body {
 
 .data-container {
     display: flex;
+}
+
+.chart-container {
+    background-color: #e7ebed;
 }
 
 .chart-size-container {
