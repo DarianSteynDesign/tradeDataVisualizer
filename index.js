@@ -19,6 +19,7 @@ var totalLoss = 0;
 var loss = 0;
 var win = 0;
 var dataCount = 0;
+var commissionTotal = 0;
 
 var currentDay = "";
 
@@ -61,19 +62,38 @@ function processData(allText) {
     
     for (var i = 1; i < allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
-        rawData.push(data[0] + "|" + headers[3] + ":" + data[3]);
-        profitData.push(parseFloat(data[3].replace(/\s/g, "")));
-        chartHeadings.push(data[0]);
-
         dataCount++;
 
-        createDataList(data[0], data[3]);
+        if(!data[4].includes('Commission')) {
+            rawData.push(data[0] + "|" + headers[3] + ":" + data[3]);
+            profitData.push(parseFloat(data[3].replace(/\s/g, "")));
+            chartHeadings.push(data[0]);
+            createDataList(data[0], data[3]);
+        } else {
+            processCommissionData(parseFloat(data[3].replace(/\s/g, "")));
+        }
     }
 
     profitData.reverse();
     chartHeadings.reverse();
 
+    updateSummaryText();
     createBarChart('barChart', chartHeadings, profitData, 'Trades Over Time');
+}
+
+function processCommissionData(data) {
+    commissionTotal += data;
+}
+
+function updateSummaryText() {
+    // totalLoss += commissionTotal;
+    // totalProfit += commissionTotal;
+    // $('#profit').text("Total Win Amount: " + totalProfit.toFixed(2).toString());
+    // $('#loss').text("Total Profit Amount: " + totalLoss.toFixed(2).toString());
+
+    $('#commissionFees').text("Total commission fees: " + commissionTotal.toFixed(2).toString());
+    $('#totalProfit').text("Total Profit: " + (totalProfit + totalLoss).toString());
+    $('#afterCommission').text("Profit after comm: " + ((totalProfit + totalLoss) + commissionTotal).toFixed(2).toString());
 }
 
 function createDataList(date, value) {
@@ -83,7 +103,7 @@ function createDataList(date, value) {
 
     if (formattedValue >= 0) {
         var formattedDate = date.split(' ')[0]
-        totalProfit += parseInt(formattedValue);
+        totalProfit += parseFloat(formattedValue);
 
         rawDataString += "<li class='raw-data-list-item'>"
         + "<p class='list-date'>" + date + "</p>" + "<p class='list-value profit'>Profit: " + formattedValue + "</p>" + "</li>";
@@ -91,7 +111,7 @@ function createDataList(date, value) {
         proccessWinLossData(formattedDate, formattedValue);
     } else {
         var formattedDate = date.split(' ')[0]
-        totalLoss += parseInt(formattedValue);
+        totalLoss += parseFloat(formattedValue);
 
         rawDataString += "<li class='raw-data-list-item'>"
         + "<p class='list-date'>" + date + "</p>" + "<p class='list-value loss'>Loss: " + formattedValue + "</p>" + "</li>";
@@ -100,11 +120,8 @@ function createDataList(date, value) {
     }
 
     winLossRatio = (win / loss).toFixed(2);
-
+    console.log(date, value, totalProfit);
     $('.raw-data-list').append(rawDataString);
-    $('#profit').text("Profit: " + totalProfit.toString());
-    $('#loss').text("Loss: " + totalLoss.toString());
-    $('#totalProfit').text("Total Profit: " + (totalProfit + totalLoss).toString());
     $('#ratio').text("W/L Ratio: " + winLossRatio.toString());
 }
 

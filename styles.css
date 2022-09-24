@@ -109,17 +109,19 @@ body {
 .profit {
     font-family: Lato;
     color: green;
-    font-weight: bold;
 }
 
 .profit.avg {
     color: orange;
 }
 
+.profit.comm {
+    font-weight: bold;
+}
+
 .loss {
     font-family: Lato;
     color: red;
-    font-weight: bold;
 }
 
 .win-rate-ratio {
