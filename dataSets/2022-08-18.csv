@@ -1,7 +1,0 @@
-Time,Balance Before,Balance After,Profit,Action
-2022-08-18 17:05:49,1 207.56,1 211.04,+3.48,"Close short position for symbol BYBIT:AVAXUSDT at price 25.475 for 24 shares. Position AVG Price was 25.620000, currency: USDT, rate: 0.999820, last updated rate on 2022-08-18T14:55:24Z, point value: 1.000000"
-2022-08-18 17:05:29,1 204.80,1 207.56,+2.76,"Close short position for symbol BYBIT:AVAXUSDT at price 25.505 for 24 shares. Position AVG Price was 25.620000, currency: USDT, rate: 0.999820, last updated rate on 2022-08-18T14:55:24Z, point value: 1.000000"
-2022-08-18 17:02:45,1 201.80,1 204.80,+3.00,"Close short position for symbol BYBIT:AVAXUSDT at price 25.585 for 24 shares. Position AVG Price was 25.710000, currency: USDT, rate: 0.999820, last updated rate on 2022-08-18T14:55:24Z, point value: 1.000000"
-2022-08-18 16:55:21,1 198.20,1 201.80,+3.60,"Close short position for symbol BYBIT:AVAXUSDT at price 25.665 for 24 shares. Position AVG Price was 25.815000, currency: USDT, rate: 1.000000, last updated rate on 2022-08-18T13:58:15Z, point value: 1.000000"
-2022-08-18 16:51:34,1 195.20,1 198.20,+3.00,"Close short position for symbol BYBIT:AVAXUSDT at price 25.780 for 24 shares. Position AVG Price was 25.905000, currency: USDT, rate: 1.000000, last updated rate on 2022-08-18T13:58:15Z, point value: 1.000000"
-2022-08-18 15:31:17,1 200.00,1 195.20,-4.80,"Close long position for symbol BYBIT:AVAXUSDT at price 25.960 for 48 shares. Position AVG Price was 26.060000, currency: USDT, rate: 1.000000, last updated rate on 2022-08-18T12:58:08Z, point value: 1.000000"
