@@ -64,14 +64,10 @@ function processData(allText) {
         var data = allTextLines[i].split(',');
         dataCount++;
 
-        if(!data[4].includes('Commission')) {
-            rawData.push(data[0] + "|" + headers[3] + ":" + data[3]);
-            profitData.push(parseFloat(data[3].replace(/\s/g, "")));
-            chartHeadings.push(data[0]);
-            createDataList(data[0], data[3]);
-        } else {
-            processCommissionData(parseFloat(data[3].replace(/\s/g, "")));
-        }
+        rawData.push(data[0] + "|" + headers[3] + ":" + data[3]);
+        profitData.push(parseFloat(data[3].replace(/\s/g, "")));
+        chartHeadings.push(data[0]);
+        createDataList(data[0], data[3]);
     }
 
     profitData.reverse();
